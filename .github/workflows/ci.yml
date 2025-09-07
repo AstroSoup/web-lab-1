@@ -1,0 +1,45 @@
+name: dev-pipeline
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  backend-tests-and-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          distribution: microsoft
+          java-version: 21
+
+      - name: Run tests
+        run: ./gradlew test
+        working-directory: ./backend
+
+      - name: Run Checkstyle
+        run: ./gradlew check
+        working-directory: ./backend
+
+  frontend-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install
+        working-directory: ./config/eslint
+
+      - name: Run ESLint
+        run: npx eslint -c ../../config/eslint/eslint.config.mjs .
+        working-directory: ./apache/static
