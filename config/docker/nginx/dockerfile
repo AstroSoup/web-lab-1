@@ -1,0 +1,4 @@
+FROM nginx:latest
+COPY frontend /usr/share/nginx/html
+COPY config/nginx/extra.conf /etc/nginx/conf.d/default.conf
+EXPOSE 80
