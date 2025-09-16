@@ -41,5 +41,5 @@ jobs:
         working-directory: ./config/eslint
 
       - name: Run ESLint
-        run: npx eslint -c ../../config/eslint/eslint.config.mjs .
-        working-directory: ./apache/static
+        run: npx eslint -c ./config/eslint/eslint.config.mjs ./frontend
+        working-directory: ./
