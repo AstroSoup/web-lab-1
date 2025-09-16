@@ -1,4 +1,9 @@
-"use strict";
+//"use strict";
+function test() {
+    let x = 5;
+    alert(x);
+}
+
 
 function getX() {
     const xInput = document.querySelector('input[name="x"]:checked');
@@ -55,6 +60,7 @@ function movePoint(x, y, r) {
     point.setAttribute("visibility", "visible");
 }
 
+// eslint-disable-next-line no-unused-vars
 async function submitToBackend() {
     const x = getX();
     const y = getY();

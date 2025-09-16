@@ -5,7 +5,7 @@ html, body {
 }
 
 body {
-    font-family: "Russo One", Impact;
+    font-family: "Russo One", Impact, fantasy;
     display: grid;
     grid-template-rows: auto 1fr auto;
     grid-template-columns: auto;
@@ -102,7 +102,7 @@ main {
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 
     overflow: hidden;
-    font-family: "Russo One", Impact;
+    font-family: "Russo One", Impact, fantasy;
     padding-bottom: 0px;
 }
 
