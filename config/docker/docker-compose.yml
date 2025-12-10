@@ -1,0 +1,25 @@
+version: '3.9'
+
+services:
+  backend:
+    image: backend:latest
+    container_name: backend
+    networks:
+      - app-network
+    ports:
+      - "9000:9000"
+
+  web:
+    image: nginx-web-server:latest
+    container_name: web
+    networks:
+      - app-network
+    ports:
+      - "8080:80"  
+      - "80:80"
+    depends_on:
+      - backend
+
+networks:
+  app-network:
+    driver: bridge

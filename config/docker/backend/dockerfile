@@ -1,0 +1,4 @@
+FROM eclipse-temurin:21-jdk-alpine 
+COPY backend/build/libs/backend-1.0-SNAPSHOT-all.jar .
+EXPOSE 9000
+ENTRYPOINT ["java", "-jar", "-DFCGI_PORT=9000", "backend-1.0-SNAPSHOT-all.jar"]
